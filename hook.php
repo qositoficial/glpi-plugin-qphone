@@ -20,13 +20,13 @@ function plugin_qphone_install() {
  
     $migration = new Migration(100);
  
-    if (!$DB->tableExists('glpi_plugin_qphone_config')) {
-       $query = "CREATE TABLE `glpi_plugin_qphone_config` (
-                   `id` INT(11) NOT NULL autoincrement,
+    if (!$DB->tableExists('glpi_plugin_qphone')) {        
+       $query = "CREATE TABLE `glpi_plugin_qphone` (
+                   `id` INT(11) NOT NULL AUTO_INCREMENT,
                    `url` VARCHAR(255) NOT NULL,
                    `token` VARCHAR(255) NOT NULL,
                    PRIMARY KEY  (`id`)
-                ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC";
+                )";
        $DB->queryOrDie($query, $DB->error());
     }
  
@@ -36,11 +36,11 @@ function plugin_qphone_install() {
 }
 
 
-function plugin_myexample_uninstall() {
+function plugin_qphone_uninstall() {
     global $DB;
  
-    if ($DB->tableExists('glpi_plugin_qphone_config')) {
-        $query = "DROP TABLE `glpi_plugin_qphone_config`";
+    if ($DB->tableExists('glpi_plugin_qphone')) {
+        $query = "DROP TABLE `glpi_plugin_qphone`";
         $DB->queryOrDie($query, $DB->error());
     }
  
