@@ -35,10 +35,3 @@ function plugin_qphone_check_prerequisites() {
 function plugin_qphone_check_config() {
     return true;
 }
-
-
-function plugin_qphone_options() {
-   return [
-      Plugin::OPTION_AUTOINSTALL_DISABLED => true,
-   ];
-}
